@@ -17,7 +17,7 @@ console.log(sumAll(4));
 
 
 //3. A function which takes str and time in seconds as arguments, then every second it should count down
-//from time to 0 and print current time to console when time equals to 0 it prints str
+from time to 0 and print current time to console when time equals to 0 it prints str
 function bombTimer(str, time) {
 let countdown = setInterval (() => {
   console.log(time);
@@ -42,16 +42,15 @@ console.log(factorial(5));
 
 //5. Implement function from task №3 (bombTimer) using recursion and setTimeout.
 function bombTimerRecursion(str, time) {
-	var bombTimer = setTimeout(function countDown() {
+		setTimeout(() => {
 		if (time > 0) { 
 			console.log(time);
-			time--;
-			setTimeout(countDown, 600);
+			return bombTimerRecursion(str, time-1);
 			  } else {
 			  console.log(str);
 			  }
 			}, 600);
-	}
+}
 bombTimerRecursion('Boooom!', 5);
 
 
@@ -67,8 +66,8 @@ console.log(filterNumbers([1, 4, 8, 1, 20], 5));
 function minMax(arr) {
     arr.sort((a,b) => b - a);
     var object = {
-        max: arr.shift(),
-        min: arr.pop()
+        max: arr[0],
+        min: arr[arr.length-1]
     }
     console.log(object);
 }
@@ -119,8 +118,8 @@ function filterUsersByMonth(usersList, month) {
 	usersList.forEach ((user) => {
 		let dateOfBirth = new Date(user.birthday);
 		if(dateOfBirth.getMonth() == month)
-			return newArr = user;
+			return newArr.push({name: user.name, birthday: user.birthday});
 	});
-	return Object.values(newArr);
+	return newArr;
 }
 console.log(filterUsersByMonth(usersList, 0));
