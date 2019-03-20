@@ -69,9 +69,9 @@ function minMax(arr) {
         max: arr[0],
         min: arr[arr.length-1]
     }
-    console.log(object);
+    return object;
 }
-minMax([1, 4, 8, 2, 20]);
+console.log(minMax([1, 4, 8, 2, 20]));
 
 
 //8. A function that returns average of numbers in array.
